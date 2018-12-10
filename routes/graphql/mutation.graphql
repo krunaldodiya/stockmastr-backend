@@ -1,0 +1,31 @@
+type Mutation {
+    login(mobile: String @rules(apply: ["required", "numeric"])): AuthPayload
+
+    createUser(
+        name: String @rules(apply: ["min:5"])
+        mobile: String @rules(apply: ["required", "numeric", "unique:users"])
+    ): User
+
+    updateUser(
+        id: ID @rules(apply: ["required", "numeric"])
+        name: String @rules(apply: ["min:5"])
+        mobile: String @rules(apply: ["numeric"])
+        email: String @rules(apply: ["email", "unique:users"])
+        gender: String
+        dob: String
+        type: String
+        city: String
+        state: String
+        sebi_number: String
+        experience: Int
+        avatar: String
+        profile_updated: Boolean
+    ): User @field(resolver: "App\\Http\\GraphQL\\Mutations\\UpdateUser@update")
+
+    deleteUser(id: ID @rules(apply: ["required"])): User
+        @delete(model: "App\\User")
+
+    processTransaction(
+        transaction_id: String @rules(apply: ["required"])
+    ): Transaction
+}

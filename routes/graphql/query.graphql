@@ -1,0 +1,11 @@
+type Query {
+    users: [User!]! @paginate(type: "paginator", model: "App\\User")
+
+    user(id: ID @eq, email: String @eq): User @find(model: "App\\User")
+
+    me: User @auth
+
+    news(skip: Int!, take: Int!, type: String!): [News!]!
+
+    wallet: Wallet
+}

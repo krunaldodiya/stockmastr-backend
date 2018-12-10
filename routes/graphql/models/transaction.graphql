@@ -1,0 +1,10 @@
+type Transaction {
+    amount: Int!
+    transaction_id: String!
+    transaction_type: String!
+    status: String!
+    meta: JSON!
+    wallet: Wallet!
+    created_at: DateTime!
+    updated_at: DateTime!
+}

@@ -1,0 +1,17 @@
+type User {
+    id: ID!
+    email: String
+    name: String
+    mobile: String
+    type: String
+    gender: String
+    dob: String
+    experience: String
+    sebi_number: String
+    city: String
+    state: String
+    avatar: String
+    profile_updated: Boolean
+    created_at: DateTime!
+    updated_at: DateTime!
+}

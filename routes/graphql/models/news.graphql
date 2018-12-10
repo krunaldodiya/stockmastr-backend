@@ -1,0 +1,11 @@
+type News {
+    id: ID!
+    title: String
+    description: String
+    content: String
+    source_url: String
+    image_url: String
+    published_at: String
+    created_at: DateTime!
+    updated_at: DateTime!
+}
